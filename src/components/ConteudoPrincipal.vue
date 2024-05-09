@@ -1,5 +1,4 @@
 <script lang="ts">
-import Footer from './Footer.vue';
 import SelecionarIngredientes from './SelecionarIngredientes.vue';
 import SuaLista from './SuaLista.vue';
 
@@ -10,7 +9,7 @@ import SuaLista from './SuaLista.vue';
         ingredientes: [] as string[]
       }  
     }, 
-    components:{ SelecionarIngredientes, SuaLista, Footer },
+    components:{ SelecionarIngredientes, SuaLista },
 
     methods: {
       adicionarIngredientes(ingrediente: string) {
@@ -25,6 +24,7 @@ import SuaLista from './SuaLista.vue';
 
 <template>
   <main class="conteudo-principal">
+    
     <SuaLista :ingredientes="ingredientes"/>
 
     <SelecionarIngredientes 
@@ -35,8 +35,5 @@ import SuaLista from './SuaLista.vue';
     />
 
   </main>
-  <footer>
-    <Footer />
-  </footer>
 </template>
 
