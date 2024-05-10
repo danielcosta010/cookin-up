@@ -33,15 +33,20 @@ type Pagina = 'SelecionarIngredientes' | 'MostrarReceitas'
     
     <SuaLista :ingredientes="ingredientes"/>
 
-    <SelecionarIngredientes v-if="conteudo === 'SelecionarIngredientes'"
-      @adicionar-ingrediente="adicionarIngredientes"
-      @remover-ingrediente="removerIngrediente"
-      @buscar-receitas="navegar('MostrarReceitas')"
-    />
+    <KeepAlive include="SelecionarIngredientes">
 
-    <MostrarReceitas v-else-if="conteudo ==='MostrarReceitas'"
-      @editar-receitas="navegar('SelecionarIngredientes')"
-    />
+      <SelecionarIngredientes v-if="conteudo === 'SelecionarIngredientes'"
+        @adicionar-ingrediente="adicionarIngredientes"
+        @remover-ingrediente="removerIngrediente"
+        @buscar-receitas="navegar('MostrarReceitas')"
+      />
+  
+      <MostrarReceitas v-else-if="conteudo ==='MostrarReceitas'"
+        @editar-receitas="navegar('SelecionarIngredientes')"
+      />
+
+    </KeepAlive>
+
 
   </main>
 </template>
