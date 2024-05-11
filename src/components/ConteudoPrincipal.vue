@@ -42,6 +42,7 @@ type Pagina = 'SelecionarIngredientes' | 'MostrarReceitas'
       />
   
       <MostrarReceitas v-else-if="conteudo ==='MostrarReceitas'"
+        :ingredientes="ingredientes"
         @editar-receitas="navegar('SelecionarIngredientes')"
       />
 
